@@ -20,10 +20,11 @@ end
 
 Then(/^I should be redirected to the organisation general channel$/) do
   expect(@b.url).to match 'https://doesntmatternow.slack.com/messages/general'
+  @b.div(id: 'team_menu').wait_until_present
 end
 
 When(/^I sign out from the organisation$/) do
-  @b.div(id: 'team_menu').wait_until_present.click
+  @b.div(id: 'team_menu').click
   @b.li(id: 'logout').click
 end
 
@@ -36,6 +37,6 @@ Then(/^I should receive an error message stating incorrect details$/) do
 end
 
 Then(/^I should be redirected to the signed out page$/) do
-  sleep 1
+  @b.h1.wait_until_present
   expect(@b.url).to match 'https://doesntmatternow.slack.com/signout/done'
 end

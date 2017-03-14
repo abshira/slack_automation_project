@@ -1,30 +1,46 @@
 
 Feature: Messaging
 
+  Must be able to create and delete messages on Slack
+
+  - User must be able send a Direct Message
+  - User must be able to post a Message in a private Channel 
+  - User must be able to post a Message in a public Channel
+
+
 	The user can send direct messages to other users
 
+
 	Background: Logged in as a user.
+	Given I'm on the slack group's page
 
-	Scenario: Send a direct message
-		Given I'm on the slack group's page
+
+	Scenario: Send and delete a direct message 	
 		When I click a name in in the Direct Messaging menu
-		And I type "Hello"
-		And I press enter
-		Then the message "Hello" should appear in the direct message history
+		When I send the message 'message' 
+		Then the message 'message' should appear in the direct message history
+		#Then I should be able to delete the message 
 
-	Scenario: Posting a message on a public channel
+
+	Scenario: Posting and deleting a message on a public channel
 		When I click on a public channel.
-		Then I click on the messaging text box type in 'hello world'.
-		And click on enter.
+		And I send a message 'hello world'.
 		Then i should see my post 'hello world'.
+#Then I should be able to delete the message on a public channel
+
+	Scenario: Posting and deleting a message in a private channel 
+		When I click on a Private  channel.
+		And type in 'You sure no one can see this' in the form.
+		Then i should see my post 'You sure no one can see this' displayed.
+		#Then I should be able to delete the message on a private channel
 
 	Scenario: Posting on a channel with a Code Snippet
 
-	When I click on a channel 
-	Then I click on + button
-	And I click on code or text button
-	Then enter code 
-	Then enter comment
-	And click on create snippet button 
+		When I post a code snippet 
+		Then I enter title , code and comment 
+		And click on create snippet button 
+			
+
+
 
 

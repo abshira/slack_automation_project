@@ -13,3 +13,9 @@ Feature: Login and logout to Slack web application
       And I click the sign in button
       Then I should not be able to sign into the organisation dashboard
       And I should receive an error message stating incorrect details
+
+    Scenario: Successful
+      When I enter valid email address into the email field
+      And I enter a valid password into the password field
+      And I click the sign in button
+      Then I should be redirected to the organisation general channel

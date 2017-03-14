@@ -7,7 +7,6 @@ Feature: Messaging
 	Scenario: Posting a message on a public channel 
 		Given I am on the main organisation's homepage.
 		When I click on a public channel.
-		Then I click on the messaging text box.
-		And type in 'hello world'.
+		Then I click on the messaging text box type in 'hello world'.
 		And click on enter.
 		Then i should see my post 'hello world'.

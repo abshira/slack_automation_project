@@ -16,3 +16,12 @@ Feature: Messaging
 		Then I click on the messaging text box type in 'hello world'.
 		And click on enter.
 		Then i should see my post 'hello world'.
+
+  Scenario: Add a file from Google Docs to a DM
+	  When I click a name in in the Direct Messaging menu
+	  And I click the add button
+	  And I select Add a file from Google Docs
+		And I sign in to Google Docs
+	  And I choose a file
+	  And I click select
+	  Then the document attached should appear in the DM history

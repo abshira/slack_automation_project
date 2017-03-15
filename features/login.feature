@@ -10,8 +10,7 @@ Feature: Login and logout to Slack web application
 
     Scenario: Unsuccessful login with invalid login credentials
       When I login with invalid details
-      Then I should not be able to sign into the organisation dashboard
-      And I should receive an error message stating incorrect details
+      Then I should receive an error message stating incorrect details
 
     Scenario: Successful login with valid login credentials
       When I login with valid details

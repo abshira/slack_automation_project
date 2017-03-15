@@ -1,4 +1,5 @@
 # Hooks File
+require 'watir'
 
 browser = Watir::Browser.new :chrome
 

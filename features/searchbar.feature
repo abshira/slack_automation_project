@@ -19,7 +19,7 @@ Feature: Slack search bar
     Given I am on the homepage
     When I type "from:@ks488" into the search box
     And I press enter
-    Then I should see a list of messages from the person
+    Then I should see a list of messages from "@ks488"
 
   Scenario: Find all messages which mention a specific person.
     Given I am on the homepage

@@ -29,7 +29,7 @@ Then(/^I should see a list of messages sent to me\.$/) do
 end
 
 Then(/^I should see a list of messages from the person$/) do
-  @b.div(id: 'search_message_results').a
+  @b.div(id: 'search_message_results').a(class: 'message_sender color_U4HFP5NLB color_5b89d5 member member_preview_link').text.include? 'koflynn'
 end
 
 Then(/^I should see a list of messages which mention the person$/) do |arg1|
@@ -37,7 +37,7 @@ Then(/^I should see a list of messages which mention the person$/) do |arg1|
 end
 
 Then(/^I should see a list of messages which contain URLs\.$/) do
-  @b.div(id: 'search_filters').text.include? 'Messages'
+  @b.div(id: 'search_filters').text.include? 'https'
 end
 
 Then(/^I should see a list of messages which contain stars\.$/) do

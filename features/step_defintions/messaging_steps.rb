@@ -17,14 +17,22 @@ When(/^I send the message '(.+)'$/) do |message|
 end
 
 
-Then(/^the message '(.+)' should appear in the direct message history$/) do |message|
+And(/^the message '(.+)' appears in the direct message history$/) do |message|
 	@b.span(text: message).exist?
 end
 
-# Then(/^I should be able to delete the message$/) do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
+And(/^And I select message options$/) do
+	@b.element(css: "button[data-action='actions_menu']").click
+end
 
+And(/^And I click delete$/) do
+	@b.li(id: "delete_link").click
+  @b.button(class: "btn dialog_go btn_danger").click
+end
+
+Then(/^the message '(.+)' should be gone$/) do |message|
+	@b.span(text: message).exist?
+end
 
 When(/^I click on a public channel\.$/) do
 	@b.links.collect(&:text)
@@ -40,7 +48,6 @@ Then(/^i should see my post 'hello world'\.$/) do
   @b.span(text: 'hello world').exist?
 end
 
-<<<<<<< HEAD
 When(/^I click on a public channel\.$/) do
   @b.links.collect(&:text)
   @b.links[25].click
@@ -48,7 +55,6 @@ end
 
 Then(/^I click on the messaging text box type in 'hello world'\.$/) do
   @b.element(css:"textarea[aria-label='Message input for Channel #random']").send_keys 'hello world'
-=======
 # Then(/^I should be able to delete the message on a public channel$/) do
 #   pending # Write code here that turns the phrase above into concrete actions
 # end

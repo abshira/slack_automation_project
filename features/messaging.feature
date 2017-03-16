@@ -18,8 +18,10 @@ Feature: Messaging
 	Scenario: Send and delete a direct message
 		When I click a name in in the Direct Messaging menu
 		When I send the message 'message'
-		Then the message 'message' should appear in the direct message history
-		#Then I should be able to delete the message
+		And the message 'message' appears in the direct message history
+    And I select message options
+    And I click delete
+    Then the message 'message' should be gone
 
 
 	Scenario: Posting and deleting a message on a public channel

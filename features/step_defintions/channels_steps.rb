@@ -11,19 +11,18 @@ end
 
 When(/^i enter a name for the channel and click create channel$/) do
 @b.input(id: 'channel_create_title').wait_until_present.click
-@b.send_keys 'testpublic345333'
+@b.send_keys 'testpublic34533322'
 @b.button(id:'save_channel').wait_until_present.click
 end
 
 
 Then(/^i should have created a public channel within my organisation$/) do
-@b.div(id: 'channel_created').wait_until_present
-expect(@b.div(id: 'channel_created').exist?).to be true
+expect(@b.div(id: 'channel_created').wait_until_present.exist?).to be true
 end
 
 When(/^I toggle the channel type to private$/) do
 @b.input(id: 'channel_create_title').wait_until_present.click	
-@b.send_keys 'testprivate3214533'
+@b.send_keys 'testprivate321453322'
 @b.div(class: 'ts_toggle_button').wait_until_present.click
 @b.button(id:'save_channel').wait_until_present.click
 

@@ -11,11 +11,13 @@ Feature: Creating a public and private channels
       When i click on the create a new channel button
       And i enter a name for the channel and click create channel 
       Then i should have created a public channel within my organisation
-
-
     Scenario: Creating a private channel 
       When i click on the create a new channel button
       And I toggle the channel type to private
       And i enter a name for the channel and click create channel 
       Then i should have created a private channel within my organisation
+
+
+
+
 
